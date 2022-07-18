@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\"",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tsconfig.json",
+    "deploy": "np"
   },
   "repository": {
     "type": "git",
