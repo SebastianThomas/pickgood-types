@@ -1,22 +1,31 @@
 import { ID as IDType } from './ID'
 
-export type ProductType = {
-  ID: IDType
+export type DirectSearchableProductType = {
   title: string
   quantity: string
   description: string
-  images: string[]
-  configurableFields: { [field: string]: string }
+  price: string
 }
 
-export class Product<I extends IDType> implements ProductType {
+export type ProductType<T extends string[]> = DirectSearchableProductType & {
+  ID: IDType
+  images: string[]
+  configurableFields: ConfigurableFieldsType<T>
+}
+
+export type ConfigurableFieldsType<T extends string[]> = {
+  [F in T[number]]: string
+}
+
+export class Product<I extends IDType, C extends string[]> implements ProductType<C> {
   constructor(
     public ID: I,
     public title: string,
     public quantity: string,
     public description: string,
+    public price: string,
     public images: string[],
-    public configurableFields: { [field: string]: string },
+    public configurableFields: ConfigurableFieldsType<C>,
   ) {}
 
   /**
@@ -24,16 +33,22 @@ export class Product<I extends IDType> implements ProductType {
    * @param attribute The attribute to get from the Product
    * @returns The value of the desired attribute or undefined if the attribute is not defined on the Product and `configurableFields`
    */
-  getAttribute(attribute: string): string {
+  getAttribute(attribute: keyof DirectSearchableProductType | C[number]): string {
     switch (attribute) {
       case 'title':
         return this.title
       case 'quantity':
         return this.quantity
+      case 'price':
+        return this.price
       case 'description':
         return this.description
       default:
-        return this.configurableFields[attribute]
+        return this.getConfigurableAttribute(attribute)
     }
+  }
+
+  private getConfigurableAttribute(attribute: C[number]): string {
+    return this.configurableFields[attribute]
   }
 }
