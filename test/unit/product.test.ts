@@ -11,25 +11,29 @@ class ProductUnitTests {
   titleValue = 'Test Title'
   quantityValue = 'Quantity Value'
   priceValue = '15.30€'
-  product: Product<number, ['test']> = new Product<number, ['test']>(
+  dateTest = new Date()
+  product: Product<number, ['test'], [], ['dateTest']> = new Product<number, ['test'], [], ['dateTest']>(
     1,
     this.titleValue,
-    this.quantityValue,
     this.descriptionValue,
     this.priceValue,
     ['img.jpg', 'test.png'],
     {
       test: 'MyTest',
     },
+    {},
+    {
+      dateTest: this.dateTest,
+    },
   )
 
   @test 'normal properties should equal'() {
     this.product.getAttribute('title').should.equal(this.titleValue)
-    this.product.getAttribute('quantity').should.equal(this.quantityValue)
     this.product.getAttribute('description').should.equal(this.descriptionValue)
     this.product.getAttribute('price').should.equal(this.priceValue)
   }
   @test 'custom property should equal'() {
     this.product.getAttribute('test').should.equal('MyTest')
+    this.product.getAttribute('dateTest').should.equal(this.dateTest)
   }
 }
