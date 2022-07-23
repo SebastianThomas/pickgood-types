@@ -1,4 +1,4 @@
-import { Model } from 'sequelize/types'
+import { Model } from 'sequelize'
 import { ID as IDType } from '../ID'
 import { StationNameType } from './Station'
 

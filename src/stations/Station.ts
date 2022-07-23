@@ -1,4 +1,4 @@
-import { Model } from 'sequelize/types'
+import { Model } from 'sequelize'
 
 export type StationNameType = string
 export type StationIDType = StationNameType
