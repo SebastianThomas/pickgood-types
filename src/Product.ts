@@ -8,7 +8,7 @@ export type DirectSearchableProductType = {
 }
 
 export type ProductType<S extends string[], N extends string[], D extends string[]> = DirectSearchableProductType & {
-  ID: IDType
+  productID: IDType
   images: string[]
   configurableStringFields: ConfigurableFieldsType<string, S>
   configurableNumberFields: ConfigurableFieldsType<number, N>
@@ -20,7 +20,7 @@ export type ConfigurableFieldsType<V extends number | string | Date, T extends s
 }
 
 /**
- * A Product with an `ID` (`typeof string | number`) dynamic fields:
+ * A Product with a `productID` (`typeof string | number`) dynamic fields:
  * - `CS` represent a list of keys for dynamic fields that are `string` values
  * - `CN` represent a list of keys for dynamic fields that are `number` values
  * - `CD` represent a list of keys for dynamic fields that are `Date`s
@@ -30,7 +30,7 @@ export class Product<I extends IDType, CS extends string[], CN extends string[],
   implements ProductType<CS, CN, CD>
 {
   constructor(
-    public ID: I,
+    public productID: I,
     public title: string,
     public description: string,
     public price: string,
@@ -43,7 +43,7 @@ export class Product<I extends IDType, CS extends string[], CN extends string[],
   }
 
   /**
-   * Get an attribute of a product. Excluded are `ID` and `images` so the method always returns a string value.
+   * Get an attribute of a product. Excluded are `productID` and `images` so the method always returns a primitive (number, string) or Date value.
    * @param attribute The attribute to get from the Product
    * @returns The value of the desired attribute or undefined if the attribute is not defined on the Product and `configurableFields`
    */
