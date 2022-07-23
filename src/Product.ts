@@ -1,3 +1,4 @@
+import { Model } from 'sequelize/types'
 import { ID as IDType } from './ID'
 
 export type DirectSearchableProductType = {
@@ -11,7 +12,7 @@ export type ProductType<S extends string[], N extends string[], D extends string
   images: string[]
   configurableStringFields: ConfigurableFieldsType<string, S>
   configurableNumberFields: ConfigurableFieldsType<number, N>
-  configurableDateFields: ConfigurableFieldsType<Date, N>
+  configurableDateFields: ConfigurableFieldsType<Date, D>
 }
 
 export type ConfigurableFieldsType<V extends number | string | Date, T extends string[]> = {
@@ -25,6 +26,7 @@ export type ConfigurableFieldsType<V extends number | string | Date, T extends s
  * - `CD` represent a list of keys for dynamic fields that are `Date`s
  */
 export class Product<I extends IDType, CS extends string[], CN extends string[], CD extends string[]>
+  extends Model
   implements ProductType<CS, CN, CD>
 {
   constructor(
@@ -36,7 +38,9 @@ export class Product<I extends IDType, CS extends string[], CN extends string[],
     public configurableStringFields: ConfigurableFieldsType<string, CS>,
     public configurableNumberFields: ConfigurableFieldsType<number, CN>,
     public configurableDateFields: ConfigurableFieldsType<Date, CD>,
-  ) {}
+  ) {
+    super()
+  }
 
   /**
    * Get an attribute of a product. Excluded are `ID` and `images` so the method always returns a string value.
