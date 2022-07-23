@@ -1,6 +1,6 @@
 export type StationNameType = string
 export type StationIDType = StationNameType
 
-export class Station {
+export default class Station {
   constructor(public name: StationNameType, public description: string) {}
 }
