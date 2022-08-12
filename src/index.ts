@@ -2,7 +2,7 @@ import { ID as IDType } from './ID'
 
 import User from './User'
 
-import { Product, ProductType, DirectSearchableProductType } from './Product'
+import { ProductType, DirectSearchableProductType } from './Product'
 import ProductImages from './ProductImages'
 
 import Invoice from './invoices/Invoice'
@@ -14,6 +14,6 @@ import StationPackedProduct from './stations/StationPackedProduct'
 
 export { IDType }
 export { User }
-export { Product, ProductType, DirectSearchableProductType, ProductImages }
+export { ProductType, DirectSearchableProductType, ProductImages }
 export { Invoice, PackingInvoice }
 export { ProductAtStation, Station, StationPackedProduct }

@@ -5,7 +5,7 @@ import { StationNameType } from './Station'
 /**
  * Type `I` = type of `ProductID`s
  */
-export default class ProductAtStation<I extends IDType> extends Model {
+class ProductAtStationModel<I extends IDType> extends Model {
   constructor(
     public stationName: StationNameType,
     public productID: I,
@@ -15,3 +15,11 @@ export default class ProductAtStation<I extends IDType> extends Model {
     super()
   }
 }
+
+type ProductAtStationType<I extends IDType> = {
+  stationName: StationNameType
+  productID: I
+  lastPacked: Date
+  countPacked: number
+}
+export default ProductAtStationType

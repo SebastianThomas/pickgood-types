@@ -2,7 +2,7 @@ import { Model } from 'sequelize'
 import { ID as IDType } from './ID'
 import { StationNameType } from './stations/Station'
 
-export default class User<I extends IDType> extends Model {
+class UserModel<I extends IDType> extends Model {
   constructor(
     public userID: I,
     public firstName: string,
@@ -12,3 +12,11 @@ export default class User<I extends IDType> extends Model {
     super()
   }
 }
+
+type UserType<I extends IDType> = {
+  userID: I
+  firstName: string
+  lastName: string
+  stationName: StationNameType | null
+}
+export default UserType
