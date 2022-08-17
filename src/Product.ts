@@ -1,21 +1,25 @@
 import { Model } from 'sequelize'
 import { ID as IDType } from './ID'
 
-export type DirectSearchableProductType = {
+/**
+ * A Product with a `productID` (`typeof string | number`)
+ */
+export type ProductType = {
+  productID: IDType
+
   title: string
   description: string
   price: string
+
+  in_stock: number
+  ordered: number
+  available: number
+  last_ordered: string
+  last_stock_control: string
 }
 
-/**
- * A Product with a `productID` (`typeof string | number`) dynamic fields:
- * - `CS` represent a list of keys for dynamic fields that are `string` values
- * - `CN` represent a list of keys for dynamic fields that are `number` values
- * - `CD` represent a list of keys for dynamic fields that are `Date`s
- */
-export type ProductType = DirectSearchableProductType & {
-  productID: IDType
-  images: string[]
+export type ProductWithImagesType = ProductType & {
+  images: string
 }
 
 type ConfigurableFieldsType<V extends number | string | Date, T extends string[]> = {
