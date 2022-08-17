@@ -13,15 +13,12 @@ export type DirectSearchableProductType = {
  * - `CN` represent a list of keys for dynamic fields that are `number` values
  * - `CD` represent a list of keys for dynamic fields that are `Date`s
  */
-export type ProductType<S extends string[], N extends string[], D extends string[]> = DirectSearchableProductType & {
+export type ProductType = DirectSearchableProductType & {
   productID: IDType
   images: string[]
-  configurableStringFields: ConfigurableFieldsType<string, S>
-  configurableNumberFields: ConfigurableFieldsType<number, N>
-  configurableDateFields: ConfigurableFieldsType<Date, D>
 }
 
-export type ConfigurableFieldsType<V extends number | string | Date, T extends string[]> = {
+type ConfigurableFieldsType<V extends number | string | Date, T extends string[]> = {
   [F in T[number]]: V
 }
 
@@ -31,10 +28,7 @@ export type ConfigurableFieldsType<V extends number | string | Date, T extends s
  * - `CN` represent a list of keys for dynamic fields that are `number` values
  * - `CD` represent a list of keys for dynamic fields that are `Date`s
  */
-class Product<I extends IDType, CS extends string[], CN extends string[], CD extends string[]>
-  extends Model
-  implements ProductType<CS, CN, CD>
-{
+class Product<I extends IDType, CS extends string[], CN extends string[], CD extends string[]> extends Model {
   constructor(
     public productID: I,
     public title: string,
