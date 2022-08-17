@@ -1,6 +1,6 @@
 {
   "name": "pickgood-types",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Types for the pickgood application",
   "main": "./lib/index.js",
   "files": [
