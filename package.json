@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "test": "mocha -n loader=ts-node/esm test/**/*.test.ts",
+    "t": "npm run format && npm run lint && npm run build",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
