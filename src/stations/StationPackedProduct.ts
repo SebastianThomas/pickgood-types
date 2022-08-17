@@ -6,5 +6,6 @@ type StationPackedProductType<I extends IDType> = {
   invoiceID: I
   stationName: StationNameType
   userID: I
+  quantity: number
 }
 export default StationPackedProductType
