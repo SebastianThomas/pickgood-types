@@ -1,6 +1,7 @@
 import { ID as IDType } from './ID'
 
 import User from './User'
+import { UserRank } from './User'
 
 import { ProductType } from './Product'
 import ProductImages from './ProductImages'
@@ -15,7 +16,7 @@ import StationPackedProduct from './stations/StationPackedProduct'
 import RefreshTokenType from './RefreshToken'
 
 export { IDType }
-export { User }
+export { User, UserRank }
 export { ProductType, ProductImages }
 export { Invoice, PackingInvoice }
 export { ProductAtStation, Station, StationPackedProduct }
