@@ -6,7 +6,7 @@ import { UserRank } from './User'
 import { ProductType } from './Product'
 import ProductImages from './ProductImages'
 
-import Invoice from './invoices/Invoice'
+import Invoice, { InvoiceStatusPossibilitiesType, InvoiceStatusType } from './invoices/Invoice'
 import PackingInvoice from './invoices/PackingInvoice'
 import ProductAtStation from './stations/ProductAtStation'
 
@@ -18,6 +18,6 @@ import RefreshTokenType from './RefreshToken'
 export { IDType }
 export { User, UserRank }
 export { ProductType, ProductImages }
-export { Invoice, PackingInvoice }
+export { Invoice, InvoiceStatusPossibilitiesType, InvoiceStatusType, PackingInvoice }
 export { ProductAtStation, Station, StationPackedProduct }
 export { RefreshTokenType }
