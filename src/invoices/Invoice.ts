@@ -22,4 +22,4 @@ type InvoiceStatusPossibilitiesType = typeof invoiceStatus
 type InvoiceStatusType = typeof invoiceStatus[number]
 
 export default InvoiceType
-export { InvoiceStatusType, InvoiceStatusPossibilitiesType }
+export { InvoiceStatusType, InvoiceStatusPossibilitiesType, invoiceStatus }
