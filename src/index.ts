@@ -7,7 +7,10 @@ import { ProductType } from './Product'
 import ProductImages from './ProductImages'
 
 import Invoice, { InvoiceStatusPossibilitiesType, InvoiceStatusType } from './invoices/Invoice'
-import PackingInvoice from './invoices/PackingInvoice'
+import PackingInvoice, {
+  PackingInvoiceStatusPossibilitiesType,
+  PackingInvoiceStatusType,
+} from './invoices/PackingInvoice'
 import ProductAtStation from './stations/ProductAtStation'
 
 import Station from './stations/Station'
@@ -18,6 +21,13 @@ import RefreshTokenType from './RefreshToken'
 export { IDType }
 export { User, UserRank }
 export { ProductType, ProductImages }
-export { Invoice, InvoiceStatusPossibilitiesType, InvoiceStatusType, PackingInvoice }
+export {
+  Invoice,
+  InvoiceStatusPossibilitiesType,
+  InvoiceStatusType,
+  PackingInvoice,
+  PackingInvoiceStatusPossibilitiesType,
+  PackingInvoiceStatusType,
+}
 export { ProductAtStation, Station, StationPackedProduct }
 export { RefreshTokenType }
