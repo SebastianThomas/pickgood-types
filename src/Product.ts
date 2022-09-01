@@ -5,6 +5,7 @@ import { ID as IDType } from './ID'
  */
 export type ProductType = {
   productID: IDType
+  billbeeProductID: number
 
   title: string
   description: string

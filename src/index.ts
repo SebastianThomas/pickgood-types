@@ -28,13 +28,13 @@ import {
   BillbeeImageType,
   BillbeeKeyValue,
   BillbeeOrderItemType,
-  BillbeeOrderType,
   BillbeePaymentType,
-  BillbeeProductType,
   BillbeeShippingIDType,
   BillbeeShippingServiceType,
   BillbeeShopInfoType,
 } from './billbee'
+import { BillbeeOrderType } from './billbee/Order'
+import { BillbeeProductType } from './billbee/Product'
 
 export { IDType }
 export { User, UserRank }

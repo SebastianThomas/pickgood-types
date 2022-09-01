@@ -1,5 +1,13 @@
+import { BillbeeProductType } from './billbee/Product'
+
 export type BillbeeContactType = {
+  /**
+   * Billbee's internal contact ID, PK.
+   */
   Id: number
+  /**
+   * Type of the contact (e.g., Fax, Phone, Email).
+   */
   TypeId: number
   TypeName: string
   SubType: string
@@ -9,6 +17,9 @@ export type BillbeeShopInfoType = {
   Platform: string
   BillbeeShopName: string
   BillbeeShopId: number
+  /**
+   * Billbee's internal ID, PK, UUID.
+   */
   Id: string
   Nick: string
   FirstName: string
@@ -17,33 +28,28 @@ export type BillbeeShopInfoType = {
   Email: string
 }
 export type BillbeeImageType = {
+  /**
+   * Url = PK
+   */
   Url: string
   IsDefaultImage: boolean
   Position: number
   ExternalId: string
 }
-export type BillbeeProductType = {
-  OldId: string
-  Id: string
-  Title: string
-  Weight: number
-  SKU: string
-  SkuOrId: string
-  IsDigital: boolean
-  Images: BillbeeImageType[]
-  EAN: string
-  PlatformData: string
-  TARICCode: string
-  CountryOfOrigin: string
-  BillbeeId: number
-}
+
 export type BillbeeAttributeType = {
+  /**
+   * Billbee's internal ID of the Attribute, PK.
+   */
   Id: string
   Name: string
   Value: string
   Price: number
 }
 export type BillbeeOrderItemType = {
+  /**
+   * Billbee's internal ID of the Order Item, PK.
+   */
   BillbeeId: number
   TransactionId: string
   Product: BillbeeProductType
@@ -62,6 +68,9 @@ export type BillbeeOrderItemType = {
   InvoiceSKU: string
 }
 export type BillbeeAddressType = {
+  /**
+   * Internal ID from the billbee system, PK.
+   */
   BillbeeId: number
   FirstName: string
   LastName: string
@@ -92,6 +101,9 @@ export type BillbeeShippingServiceType = {
   CanBeConfigured: boolean
 }
 export type BillbeeCustomerType = {
+  /**
+   * Billbee's internal Customer ID, PK.
+   */
   Id: number
   Name: string
   Email: string
@@ -115,9 +127,15 @@ export type BillbeeHistoryEventType = {
   EventTypeName: string
   Text: string
   EmployeeName: string
+  /**
+   * Billbee's internal ID of a specific event, PK.
+   */
   TypeId: number
 }
 export type BillbeeCommentType = {
+  /**
+   * Billbee's internal comment ID, PK.
+   */
   Id: number
   FromCustomer: boolean
   Text: string
@@ -125,6 +143,9 @@ export type BillbeeCommentType = {
   Created: Date
 }
 export type BillbeeShippingIDType = {
+  /**
+   * Billbee's internal shipping ID, PK.
+   */
   BillbeeId: number
   ShippingId: string
   Shipper: string
@@ -145,69 +166,4 @@ export type BillbeePaymentType = {
   PayValue: number
   Purpose: string
   Name: string
-}
-
-export type BillbeeOrderType = {
-  RebateDifference: number
-  ShippingIds: BillbeeShippingIDType[]
-  AcceptLossOfReturnRight: boolean
-  Id: string
-  OrderNumber: string
-  State: number
-  VatMode: number
-  CreatedAt: Date
-  ShippedAt: Date
-  ConfirmedAt: Date
-  PayedAt: Date
-  SellerComment: string
-  Comments: BillbeeCommentType[]
-  InvoiceNumberPrefix: string
-  InvoiceNumberPostfix: string
-  InvoiceNumber: number
-  InvoiceDate: Date
-  InvoiceAddress: BillbeeAddressType
-  ShippingAddress: BillbeeAddressType
-  PaymentMethod: number
-  ShippingCost: number
-  TotalCost: number
-  AdjustmentCost: number
-  AdjustmentReason: string
-  OrderItems: BillbeeOrderItemType[]
-  Currency: string
-  Seller: BillbeeShopInfoType
-  Buyer: BillbeeShopInfoType
-  UpdatedAt: Date
-  TaxRate1: number
-  TaxRate2: number
-  BillBeeOrderId: number
-  BillBeeParentOrderId: number
-  VatId: string
-  Tags: string[]
-  ShipWeightKg: number
-  LanguageCode: string
-  PaidAmount: number
-  ShippingProfileId: string
-  ShippingProviderId: number
-  ShippingProviderProductId: number
-  ShippingProviderName: string
-  ShippingProviderProductName: string
-  ShippingProfileName: string
-  PaymentInstruction: string
-  IsCancelationFor: string
-  PaymentTransactionId: string
-  DistributionCenter: string
-  DeliverySourceCountryCode: string
-  CustomInvoiceNote: string
-  CustomerNumber: string
-  PaymentReference: string
-  ShippingServices: BillbeeShippingServiceType[]
-  Customer: BillbeeCustomerType
-  History: BillbeeHistoryEventType[]
-  Payments: BillbeePaymentType[]
-  LastModifiedAt: Date
-  ApiAccountId: number
-  ApiAccountName: string
-  MerchantVatId: string
-  CustomerVatId: string
-  IsFromBillbeeApi: true
 }
