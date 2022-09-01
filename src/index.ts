@@ -18,6 +18,24 @@ import StationPackedProduct from './stations/StationPackedProduct'
 
 import RefreshTokenType from './RefreshToken'
 
+import {
+  BillbeeAddressType,
+  BillbeeAttributeType,
+  BillbeeCommentType,
+  BillbeeContactType,
+  BillbeeCustomerType,
+  BillbeeHistoryEventType,
+  BillbeeImageType,
+  BillbeeKeyValue,
+  BillbeeOrderItemType,
+  BillbeeOrderType,
+  BillbeePaymentType,
+  BillbeeProductType,
+  BillbeeShippingIDType,
+  BillbeeShippingServiceType,
+  BillbeeShopInfoType,
+} from './billbee'
+
 export { IDType }
 export { User, UserRank }
 export { ProductType, ProductImages }
@@ -31,3 +49,20 @@ export {
 }
 export { ProductAtStation, Station, StationPackedProduct }
 export { RefreshTokenType }
+export {
+  BillbeeAddressType,
+  BillbeeAttributeType,
+  BillbeeCommentType,
+  BillbeeContactType,
+  BillbeeCustomerType,
+  BillbeeHistoryEventType,
+  BillbeeImageType,
+  BillbeeKeyValue,
+  BillbeeOrderItemType,
+  BillbeeOrderType,
+  BillbeePaymentType,
+  BillbeeProductType,
+  BillbeeShippingIDType,
+  BillbeeShippingServiceType,
+  BillbeeShopInfoType,
+}
